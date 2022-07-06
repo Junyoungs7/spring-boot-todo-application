@@ -21,12 +21,16 @@ public class TodoEntity {
     @Column(nullable = false)
     private String content;
 
-    @Column(nullable = false, columnDefinition = "false")
-    private Boolean completed;
+    @Column(nullable = false)
+    private Boolean completed = false;
+
+    public void update(String title, String content){
+        this.title = title;
+        this.content = content;
+    }
 
     @Builder
-    public TodoEntity(Long id, String title, String content) {
-        this.id = id;
+    public TodoEntity(String title, String content) {
         this.title = title;
         this.content = content;
     }
